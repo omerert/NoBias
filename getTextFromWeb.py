@@ -16,9 +16,10 @@ import urllib.request
 import requests
 from bs4 import BeautifulSoup
 from nltk.corpus import wordnet as wn
-
+# from app import input_data
+# print(input_data)
 #TODO Get link from user input
-url = "https://abcnews.go.com/Politics/tens-thousands-expected-dc-pro-israel-rally-national/story?id=104861127"
+url = "https://www.reuters.com/world/middle-east/biden-says-gaza-hospitals-must-be-protected-2023-11-14/"
 
 #Gets source html
 
