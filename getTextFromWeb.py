@@ -18,7 +18,7 @@ from bs4 import BeautifulSoup
 from nltk.corpus import wordnet as wn
 
 #TODO Get link from user input
-url = "https://www.reuters.com/world/middle-east/biden-says-gaza-hospitals-must-be-protected-2023-11-14/"
+url = "https://abcnews.go.com/Politics/tens-thousands-expected-dc-pro-israel-rally-national/story?id=104861127"
 
 #Gets source html
 
@@ -38,7 +38,7 @@ with open('sentences.txt', 'w') as outFile:
         for sent in sentences:
             
             outFile.write(sent)
-        outFile.write("=" * 80 + "\n")
+        outFile.write("\n" + "=" * 80 + "\n")
         
             
 
