@@ -19,7 +19,7 @@ from nltk.corpus import wordnet as wn
 # from app import input_data
 # print(input_data)
 #TODO Get link from user input
-url = "https://www.reuters.com/world/middle-east/biden-says-gaza-hospitals-must-be-protected-2023-11-14/"
+url = "https://www.reuters.com/investigates/special-report/tesla-insurance/"
 
 #Gets source html
 
@@ -32,14 +32,16 @@ soupText = BeautifulSoup(htmlText, 'html.parser')
 wantedText = soupText.findAll("p")
 
 
-
-with open('sentences.txt', 'w') as outFile:
+def pasteText(list):
     for para in wantedText:
         sentences = sent_tokenize(para.text.strip())
         for sent in sentences:
+            list.append(sent + "\n")
+        list.append("*" * 500)
             
-            outFile.write(sent)
-        outFile.write("\n" + "=" * 80 + "\n")
+           
+
+    
         
             
 
