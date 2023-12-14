@@ -13,7 +13,7 @@
 import nltk
 from nltk.tokenize import sent_tokenize, word_tokenize
 import urllib.request
-import requests
+from selenium import webdriver
 from bs4 import BeautifulSoup
 from nltk.corpus import wordnet as wn
 # from app import input_data
@@ -21,24 +21,26 @@ from nltk.corpus import wordnet as wn
 #TODO Get link from user input
 
 
-
 def pasteText(list, link):
-    
+    # Create a new instance of the Safari browser
+    driver = webdriver.Safari()
+    driver.get(link)
 
-    #Gets source html
+# Wait for a while to allow JavaScript to execute (adjust the time as needed)
+    driver.implicitly_wait(2)
 
-    getRequest = requests.get(link)
-    htmlText = getRequest.text
-
+    # Now you can interact with the page using Selenium methods
+    # For example, you can retrieve the page source
+    pageSource = driver.page_source
     #Using BS and strip_tags to get the text I want
 
-    soupText = BeautifulSoup(htmlText, 'html.parser')
+    soupText = BeautifulSoup(pageSource, 'html.parser')
     wantedText = soupText.findAll("p")
     for para in wantedText:
         sentences = sent_tokenize(para.text.strip())
         for sent in sentences:
             list.append(sent)
-        list.append("*" * 500)
+            list.append("\/")
             
            
 
