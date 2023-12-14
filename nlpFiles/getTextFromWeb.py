@@ -38,9 +38,11 @@ def pasteText(list, link):
     wantedText = soupText.findAll("p")
     for para in wantedText:
         sentences = sent_tokenize(para.text.strip())
+        sentInPara = ""
         for sent in sentences:
-            list.append(sent)
-            list.append("\/")
+            sentInPara += " {0}".format(sent)
+        list.append(sentInPara)
+        list.append("----")
             
            
 
